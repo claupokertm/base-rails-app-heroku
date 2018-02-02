@@ -1,0 +1,21 @@
+backend:
+  build: ./backend
+  command: bash start.sh
+  volumes:
+    - ./deploy:/deploy
+    - ./images:/root/images/
+    - ./backend:/app:rw
+  ports:
+    - "3000:3000"
+  links:
+    - postgres
+
+postgres:
+  image: macadmins/postgres
+  ports:
+    - '5432:5432'
+  environment:
+    - DB_NAME=postgres
+    - DB_PASS=1234
+  volumes:
+    - ./db_pg:/var/lib/postgresql/data

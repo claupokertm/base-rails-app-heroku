@@ -2,8 +2,6 @@ backend:
   build: ./backend
   command: bash start.sh
   volumes:
-    - ./deploy:/deploy
-    - ./images:/root/images/
     - ./backend:/app:rw
   ports:
     - "3000:3000"

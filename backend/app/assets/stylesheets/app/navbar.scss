@@ -1,0 +1,10 @@
+.main-navbar{
+  #dropdown1{
+    top: 64px !important;
+  }
+  @media #{$desktop} {
+    .brand-logo{
+      padding-left: 1em;
+    }
+  }
+}

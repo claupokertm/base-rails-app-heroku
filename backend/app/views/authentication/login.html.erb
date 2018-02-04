@@ -1,0 +1,23 @@
+<div class="row authentication">
+  <div class="col s12 m4 offset-m4">
+    <h3 class="center-align">Login App</h3>
+
+    <%= form_tag authentication_login_post_path, remote: true do %>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="username" class="active">Username</label>
+          <%= text_field_tag :username, @username, required: true%>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="password" class="active">Password</label>
+          <%= password_field_tag :password, nil, required: true%>
+        </div>
+      </div>
+      <%= link_to 'Register New Account', authentication_register_path %>
+      <button class="waves-effect waves-light btn right">Login</button>
+    <% end %>
+  </div>
+</div>

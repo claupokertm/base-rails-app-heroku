@@ -1,0 +1,8 @@
+<% model.errors.messages.each do |a, b| %>
+  var $input = $('input[name="<%= a %>"]');
+  $input.removeClass('valid');
+  $input.addClass('invalid');
+  $input.siblings('label').attr('data-error' , "<%= b.map(&:capitalize).join(',').html_safe %>")
+<% end %>
+
+toastr.error('Please Correct The Form');

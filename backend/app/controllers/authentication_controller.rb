@@ -42,18 +42,7 @@ class AuthenticationController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    flash[:success] = 'Logged out'
-    if current_admin.present?
-      respond_to do |format|
-        format.html { redirect_to users_path }
-        format.json { head 200 }
-      end
-    else
-      respond_to do |format|
-        format.html { redirect_to authentication_login_path }
-        format.json { head 200 }
-      end
-    end
+    redirect_to_js(authentication_login_path, 'Logged Out!')
   end
 
   def set_session(user)

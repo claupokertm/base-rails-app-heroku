@@ -8,30 +8,22 @@
             <%= text_field_tag :name, @name, class: 'validate', required: true%>
             <label for="name">Full Name</label>
           </div>
-        </div>
 
-        <div class="row">
           <div class="input-field col s12">
             <%= text_field_tag :username, @username, class: 'validate', required: true%>
             <label for="username">Username</label>
           </div>
-        </div>
 
-        <div class="row">
           <div class="input-field col s12">
             <%= email_field_tag :email, @email, class: 'validate', required: true%>
             <label for="email">Email</label>
           </div>
-        </div>
 
-        <div class="row">
           <div class="input-field col s12">
             <%= password_field_tag :password, nil, class: 'validate', required: true%>
             <label for="password">Password</label>
           </div>
-        </div>
 
-        <div class="row">
           <div class="input-field col s12">
             <%= password_field_tag :password_repeat, nil, class: 'validate', required: true%>
             <label for="password">Repeat Password</label>

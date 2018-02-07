@@ -1,0 +1,10 @@
+.container{
+  margin-top: 3em;
+}
+
+@media #{$mobile} {
+  .container{
+    padding: 0;
+    width: 100%;
+  }
+}

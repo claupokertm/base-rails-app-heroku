@@ -5,15 +5,13 @@
     <%= form_tag authentication_login_post_path, remote: true do %>
       <div class="row">
         <div class="input-field col s12">
-          <label for="username" class="active">Username</label>
           <%= text_field_tag :username, @username, required: true%>
+          <label for="username" class="active">Username</label>
         </div>
-      </div>
 
-      <div class="row">
         <div class="input-field col s12">
-          <label for="password" class="active">Password</label>
           <%= password_field_tag :password, nil, required: true%>
+          <label for="password" class="active">Password</label>
         </div>
       </div>
       <%= link_to 'Register New Account', authentication_register_path %>

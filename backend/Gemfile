@@ -62,3 +62,6 @@ gem 'bcrypt'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+
+### Admin
+gem 'rails_admin'

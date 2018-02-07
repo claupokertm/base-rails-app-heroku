@@ -47,6 +47,7 @@ group :test, :development do
   gem 'poltergeist'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'pry-rails'
 end
 
 ### Frontend ###
@@ -57,4 +58,6 @@ gem 'jquery-rails'
 gem 'draper'
 
 ### Authentication ###
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
+gem 'omniauth'
+gem 'omniauth-facebook'

@@ -16,5 +16,5 @@ WORKDIR /app
 RUN npm i -g yarn phantomjs
 
 RUN gem install bundler
-COPY Gemfile  ./
+COPY Gemfile  Gemfile.lock ./
 RUN bundle install --jobs 20 --retry 5

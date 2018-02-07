@@ -1,5 +1,7 @@
 FactoryBot.define do
   factory :user do
+    name 'User Full Name'
+
     sequence :username do |n|
       "user_#{n}"
     end

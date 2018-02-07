@@ -1,7 +1,7 @@
 module AuthenticationService
   class Register
     include ActiveModel::Validations
-    attr_reader :username, :password, :password_repeat, :email
+    attr_reader :username, :password, :password_repeat, :email, :name
     attr_accessor :user
     validate :unique_username, :passwords_match
     validates :username, presence: true, length: {
@@ -18,16 +18,22 @@ module AuthenticationService
       with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     }
 
+    validates :name, presence: true, length: {
+      minimum: 2,
+      maximum: 200
+    }
+
     def initialize(params = {})
       @username = params[:username]&.downcase
       @email = params[:email]&.downcase
       @password = params[:password]
       @password_repeat = params[:password_repeat]
+      @name = params[:name]
     end
 
     def process
       if valid?
-        self.user = User.create(username: username, password: password, email: email)
+        self.user = User.create(username: username, password: password, email: email, name: name)
       end
       self
     end

@@ -8,4 +8,7 @@ Rails.application.routes.draw do
     post '', action: :login_post, as: :login_post
     delete '', action: :logout, as: :logout
   end
+
+  match 'auth/:provider/callback', to: 'authentication#login_3rd_party', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
 end

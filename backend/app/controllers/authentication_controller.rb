@@ -1,4 +1,6 @@
 class AuthenticationController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: :login_3rd_party
+
   def login_post
     @username = params[:username]
     login = AuthenticationService::Login.new(params: params).process
@@ -30,11 +32,11 @@ class AuthenticationController < ApplicationController
   end
 
   def login_3rd_party
-    login = AuthenticationService::Login.new(params: params).process
+    login = AuthenticationService::ExternalLogin.new(auth: request.env['omniauth.auth']).process
 
     if login.user.present?
       set_session(login.user)
-      redirect_to_js(root_path, 'Welcome!')
+      redirect_to root_path
     end
   end
 
